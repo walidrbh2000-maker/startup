@@ -1,0 +1,307 @@
+{
+  "brand": "Khidmeti",
+  "nav": {
+    "services": "Services",
+    "how": "Comment ça marche",
+    "workers": "Artisans",
+    "faq": "FAQ",
+    "download": "Télécharger",
+    "admin": "Admin",
+    "menu": "Menu"
+  },
+  "hero": {
+    "badge": "Plateforme n°1 des services à domicile en Algérie",
+    "title_1": "Trouvez un",
+    "title_hl": "artisan de confiance",
+    "title_2": "en quelques minutes",
+    "subtitle": "Plombier, électricien, menuisier, ménage et plus encore — publiez votre demande, recevez les offres des artisans proches et choisissez en toute confiance.",
+    "cta_primary": "Télécharger gratuitement",
+    "cta_secondary": "Voir les services",
+    "stat_professions": "métiers disponibles",
+    "stat_languages": "langues supportées",
+    "stat_free": "gratuit pour les clients",
+    "phone_offers": "Offres reçues"
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "Tout ce dont votre maison a besoin",
+    "subtitle": "Des dizaines de métiers de confiance, disponibles à tout moment.",
+    "loading": "Chargement des services…",
+    "error": "Impossible de charger les services pour le moment.",
+    "cta": "Et bien d'autres services"
+  },
+  "how": {
+    "kicker": "Comment ça marche",
+    "title": "Trois étapes simples",
+    "subtitle": "De la demande à la réalisation, une expérience fluide.",
+    "step1_title": "Publiez votre demande",
+    "step1_desc": "Décrivez votre besoin par texte, voix ou photo, indiquez votre position et l'horaire.",
+    "step2_title": "Recevez des offres",
+    "step2_desc": "Les artisans proches vous envoient leur prix, leur délai et vous voyez leurs notes.",
+    "step3_title": "Choisissez et c'est fait",
+    "step3_desc": "Sélectionnez la meilleure offre, suivez l'artisan et notez le service."
+  },
+  "workers": {
+    "kicker": "Artisans",
+    "title": "Travaillez à votre compte, augmentez vos revenus",
+    "subtitle": "Rejoignez le réseau Khidmeti et recevez des demandes près de chez vous.",
+    "benefit1": "Des demandes proches en temps réel",
+    "benefit2": "Vous fixez vos prix et vos horaires",
+    "benefit3": "Paiements clairs et avis qui bâtissent votre réputation",
+    "benefit4": "Alertes instantanées à chaque opportunité",
+    "cta": "Devenir artisan"
+  },
+  "features": {
+    "kicker": "Pourquoi Khidmeti",
+    "title": "Conçu pour votre tranquillité",
+    "f1_title": "Artisans vérifiés",
+    "f1_desc": "Profils vérifiés et avis réels de clients précédents.",
+    "f2_title": "Assistant IA",
+    "f2_desc": "Comprend votre demande et l'oriente vers le bon artisan en secondes.",
+    "f3_title": "Près de chez vous",
+    "f3_desc": "Nous vous relions aux artisans les plus proches selon votre localisation.",
+    "f4_title": "Suivi en direct",
+    "f4_desc": "Notifications en temps réel à chaque mise à jour.",
+    "f5_title": "Prix transparents",
+    "f5_desc": "Comparez les offres et choisissez sans surprise.",
+    "f6_title": "Dans votre langue",
+    "f6_desc": "Interface complète en arabe, français et anglais."
+  },
+  "faq": {
+    "kicker": "Questions fréquentes",
+    "title": "Une question ? Nous avons la réponse",
+    "q1": "L'application est-elle gratuite ?",
+    "a1": "Oui, le téléchargement et la demande de service sont entièrement gratuits. Vous ne payez que le service à l'artisan.",
+    "q2": "Comment garantir la qualité de l'artisan ?",
+    "a2": "Chaque artisan possède un profil avec avis clients et nombre de missions réalisées, consultables avant de choisir.",
+    "q3": "Dans quelles régions est-ce disponible ?",
+    "a3": "Nous nous étendons progressivement dans les wilayas d'Algérie. Téléchargez l'app pour vérifier votre zone.",
+    "q4": "Comment devenir artisan ?",
+    "a4": "Téléchargez l'app, choisissez « Artisan » à l'inscription, complétez votre profil et votre métier pour recevoir des demandes."
+  },
+  "download": {
+    "title": "Prêt à commencer ?",
+    "subtitle": "Téléchargez Khidmeti et trouvez un artisan de confiance en minutes.",
+    "android": "Télécharger sur Android",
+    "ios": "Télécharger sur iPhone"
+  },
+  "footer": {
+    "tagline": "La plateforme de services à domicile de confiance en Algérie.",
+    "product": "Produit",
+    "company": "Entreprise",
+    "legal": "Légal",
+    "contact": "Contact",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "rights": "Tous droits réservés."
+  },
+  "admin": {
+    "login": {
+      "title": "Espace Admin",
+      "subtitle": "Connectez-vous avec un compte administrateur",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "submitting": "Connexion…",
+      "not_configured": "Firebase non configuré. Ajoutez les variables VITE_FIREBASE_* dans .env.",
+      "invalid": "E-mail ou mot de passe incorrect.",
+      "forbidden": "Ce compte n'a pas les droits administrateur.",
+      "back": "Retour au site"
+    },
+    "nav": {
+      "dashboard": "Tableau de bord",
+      "users": "Utilisateurs",
+      "workers": "Artisans",
+      "verifications": "Vérifications",
+      "requests": "Demandes",
+      "bids": "Offres",
+      "professions": "Métiers",
+      "broadcast": "Diffusion",
+      "logout": "Déconnexion",
+      "site": "Voir le site"
+    },
+    "dashboard": {
+      "title": "Vue d'ensemble",
+      "subtitle": "Résumé de l'état de la plateforme",
+      "total_users": "Utilisateurs",
+      "clients": "Clients",
+      "workers": "Artisans",
+      "online_workers": "Artisans en ligne",
+      "verified": "Vérifiés",
+      "banned": "Bannis",
+      "total_requests": "Demandes",
+      "total_bids": "Offres",
+      "requests_per_day": "Demandes sur 30 jours",
+      "by_status": "Demandes par statut",
+      "top_professions": "Métiers les plus demandés"
+    },
+    "users": {
+      "title": "Utilisateurs",
+      "search": "Rechercher par nom, e-mail ou téléphone…",
+      "all_roles": "Tous les rôles",
+      "name": "Nom",
+      "role": "Rôle",
+      "contact": "Contact",
+      "status": "Statut",
+      "joined": "Mis à jour",
+      "actions": "Actions",
+      "active": "Actif",
+      "banned": "Banni",
+      "ban": "Bannir",
+      "unban": "Débannir",
+      "make_admin": "Promouvoir admin",
+      "delete": "Supprimer",
+      "delete_confirm": "Supprimer définitivement cet utilisateur ?",
+      "edit": "Modifier"
+    },
+    "workers": {
+      "title": "Artisans",
+      "search": "Rechercher un artisan…",
+      "profession": "Métier",
+      "rating": "Note",
+      "jobs": "Missions",
+      "verify": "Vérifier",
+      "unverify": "Retirer la vérification",
+      "online": "En ligne",
+      "offline": "Hors ligne",
+      "set_online": "Mettre en ligne",
+      "set_offline": "Mettre hors ligne"
+    },
+    "verif": {
+      "title": "Vérifications",
+      "tab_pending": "En attente",
+      "tab_rejected": "Rejetées",
+      "docs": "Documents",
+      "doc_n": "Doc {{n}}",
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "reject_title": "Rejeter la demande",
+      "note_label": "Note (visible par l'utilisateur)",
+      "note_placeholder": "Expliquez ce qui manque…",
+      "confirm_reject": "Confirmer le rejet",
+      "approved_toast": "Compte approuvé",
+      "rejected_toast": "Demande rejetée"
+    },
+    "requests": {
+      "title": "Demandes de service",
+      "search": "Rechercher une demande…",
+      "all_status": "Tous les statuts",
+      "request": "Demande",
+      "client": "Client",
+      "worker": "Artisan",
+      "price": "Prix",
+      "bids": "Offres",
+      "cancel": "Annuler",
+      "cancel_confirm": "Annuler cette demande ?",
+      "view": "Voir"
+    },
+    "bids": {
+      "title": "Offres",
+      "all_status": "Tous les statuts",
+      "worker": "Artisan",
+      "price": "Prix proposé",
+      "duration": "Durée estimée",
+      "message": "Message",
+      "minutes": "min"
+    },
+    "professions": {
+      "title": "Métiers",
+      "add": "Ajouter un métier",
+      "key": "Clé",
+      "label": "Nom",
+      "category": "Catégorie",
+      "order": "Ordre",
+      "active": "Actif",
+      "inactive": "Inactif",
+      "icon": "Icône",
+      "save": "Enregistrer",
+      "create": "Créer",
+      "cancel": "Annuler",
+      "delete_confirm": "Supprimer ce métier ?",
+      "label_fr": "Nom (FR)",
+      "label_ar": "Nom (AR)",
+      "label_en": "Nom (EN)",
+      "cat_label_fr": "Catégorie (FR)",
+      "cat_label_ar": "Catégorie (AR)",
+      "cat_label_en": "Catégorie (EN)"
+    },
+    "broadcast": {
+      "title": "Diffuser une notification",
+      "subtitle": "Envoyez une notification instantanée à un segment d'utilisateurs",
+      "notif_title": "Titre de la notification",
+      "notif_body": "Corps du message",
+      "audience": "Audience cible",
+      "aud_all": "Tout le monde",
+      "aud_clients": "Clients uniquement",
+      "aud_workers": "Artisans uniquement",
+      "aud_wilaya": "Wilaya précise",
+      "wilaya": "Code wilaya",
+      "send": "Envoyer",
+      "sending": "Envoi…",
+      "sent": "Envoyé à {{count}} utilisateur(s)"
+    }
+  },
+  "common": {
+    "loading": "Chargement…",
+    "error": "Une erreur est survenue.",
+    "retry": "Réessayer",
+    "empty": "Aucune donnée.",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "page": "Page {{page}} sur {{pages}}",
+    "of": "sur",
+    "results": "résultats",
+    "confirm": "Confirmer",
+    "skip_to_content": "Aller au contenu",
+    "back_to_top": "Retour en haut"
+  },
+  "legal": {
+    "back": "Retour à l'accueil",
+    "updated": "Dernière mise à jour : juillet 2026",
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "sections": [
+        {
+          "h": "Données collectées",
+          "p": "Nous collectons votre numéro de téléphone, votre nom, votre position (à la demande) et le détail de vos demandes de service (texte, photos, audio) pour faire fonctionner la plateforme et vous mettre en relation avec des artisans proches."
+        },
+        {
+          "h": "Utilisation de vos données",
+          "p": "Vos données servent exclusivement au service : diffusion de votre demande aux artisans, notifications et amélioration de l'expérience. Nous ne vendons aucune donnée à des tiers."
+        },
+        {
+          "h": "Stockage et protection",
+          "p": "Les données sensibles sont chiffrées et l'accès est limité au strict nécessaire. Vous pouvez demander la suppression de votre compte et de vos données à tout moment."
+        },
+        {
+          "h": "Nous contacter",
+          "p": "Pour toute question sur votre vie privée : contact@khidmeti.com."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "sections": [
+        {
+          "h": "Le service",
+          "p": "Khidmeti est une plateforme de mise en relation entre clients et artisans indépendants. Les artisans restent responsables de la qualité de leurs prestations et de leurs prix ; l'accord est conclu directement entre les parties."
+        },
+        {
+          "h": "Comptes",
+          "p": "Vous êtes responsable de l'exactitude de vos informations et de la confidentialité de vos identifiants. Les comptes frauduleux ou abusifs peuvent être suspendus."
+        },
+        {
+          "h": "Paiements et avis",
+          "p": "L'application est gratuite pour les clients. La prestation est réglée directement à l'artisan. Les avis doivent refléter une expérience réelle."
+        },
+        {
+          "h": "Responsabilité",
+          "p": "Nous vérifions les profils des artisans dans la mesure du possible, sans assumer de responsabilité directe pour les travaux réalisés hors plateforme."
+        }
+      ]
+    }
+  }
+}

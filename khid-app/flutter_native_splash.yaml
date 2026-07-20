@@ -1,0 +1,76 @@
+# =============================================================================
+# 🎨 KHIDMETI — FLUTTER NATIVE SPLASH  (Midnight Indigo v3.0)
+# =============================================================================
+#
+# ── WHY NO IMAGE IN THE NATIVE LAYER ───────────────────────────────────────
+#
+#   flutter_native_splash has platform-specific image constraints that cannot
+#   be overridden without forking the package:
+#
+#   Android <12  → bitmap drawn via <layer-list> XML. Works, but the image
+#                  is rasterised at generation time, has no anti-aliasing
+#                  on edge devices, and must survive all screen densities.
+#
+#   Android 12+  → SplashScreen API forces the image into an "icon window"
+#                  (108 dp, mandatory 33 % inner padding = only 72 dp of
+#                  visible area). Your 250×250 logo becomes a postage stamp
+#                  sitting inside an OS-controlled circle. Unacceptable for
+#                  a brand identity.
+#
+#   iOS          → LaunchScreen.storyboard renders the image at a fixed size
+#                  that can differ from your Flutter widget size, causing a
+#                  visible "jump" on transition.
+#
+#   SOLUTION USED BY STRIPE, LINEAR, VERCEL, NOTION
+#   ─────────────────────────────────────────────────
+#   Native layer shows the background colour ONLY.
+#   Flutter renders the logo starting at frame 0, with a 400 ms scale+fade
+#   entrance that begins before the user's brain can register a blank state.
+#   Because the background colour is pixel-identical on both layers, the
+#   cut is completely imperceptible. The logo "appears" — no jump, no resize,
+#   no postage-stamp effect.
+#
+# ── COLOR CONTRACT ──────────────────────────────────────────────────────────
+#
+#   Extracted directly from app_theme.dart — do NOT edit without updating
+#   AppTheme at the same time.
+#
+#     Light → AppTheme.lightBackground = Color(0xFFF8F7FF) → #F8F7FF
+#     Dark  → AppTheme.darkBackground  = Color(0xFF080510) → #080510
+#
+#   These are the SCAFFOLD colours — same values used in splash_screen.dart
+#   as `backgroundColor`. The handoff is therefore pixel-identical.
+#
+# ── AFTER ANY CHANGE ────────────────────────────────────────────────────────
+#
+#   dart run flutter_native_splash:create
+#
+# =============================================================================
+
+flutter_native_splash:
+
+  # ── System UI — MUST be false ────────────────────────────────────────────
+  # true  → hides status bar on native layer → icons "pop in" when Flutter
+  #          takes over → jarring flash. Every big-tech app sets this false.
+  fullscreen: false
+
+  # ── Light mode  (AppTheme.lightBackground = 0xFFF8F7FF) ─────────────────
+  color: "#F8F7FF"
+
+  # ── Dark mode  (AppTheme.darkBackground = 0xFF080510) ───────────────────
+  color_dark: "#080510"
+
+  # ── Platforms ────────────────────────────────────────────────────────────
+  android: true
+  ios:     true
+  web:     false
+
+  # ── Layout ───────────────────────────────────────────────────────────────
+  android_gravity:   center
+  ios_content_mode:  center
+
+  # ── Android 12+ (SplashScreen API) ───────────────────────────────────────
+  # Background only — no icon — avoids the mandatory 33 % padding crop.
+  android_12:
+    color:      "#F8F7FF"
+    color_dark: "#080510"

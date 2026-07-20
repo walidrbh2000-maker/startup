@@ -1,0 +1,120 @@
+name: khidmeti
+
+# ══════════════════════════════════════════════════════════════════════════════
+# KHIDMETI — Docker Compose v14.5
+#
+# CHANGEMENTS v14.5 vs v14.4 :
+#   - mongo / mongo-express : déjà retirés (v14.4) → MongoDB Atlas
+#   - redis  : retiré → Upstash (Cloud)
+#   - qdrant : retiré → Qdrant Cloud
+#   - minio / minio-init : retirés → Cloudinary (CDN public, plus de proxy)
+#   - api ne dépend plus que de `ai-gemma4` localement
+#   - Plus aucun volume local nécessaire (tout l'état est désormais cloud)
+#
+# BUDGET MÉMOIRE v14.5 (8 GB RAM) :
+#   ai-gemma4  : model(3.46G) + mmproj-bf16(1G) + KV-8192×1(0.7G) = ~5.16 GB
+#   api        : 1g  (NestJS + Node.js + ffmpeg)
+#   nginx      : ~0.05 GB
+#   OS + Docker: ~0.5 GB
+#   ──────────────────────────────────────────────────────
+#   Total      : ~6.71 GB  →  marge ~1.29 GB ✅
+# ══════════════════════════════════════════════════════════════════════════════
+
+networks:
+  khidmeti-network:
+    driver: bridge
+    name: khidmeti-network
+
+services:
+
+  # ── NestJS API ──────────────────────────────────────────────────────────────
+  api:
+    build:
+      context:    ./apps/api
+      dockerfile: Dockerfile
+      target:     development
+      args:
+        NODE_VERSION: "20.19-alpine3.21"
+    container_name: khidmeti-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV:     development
+      NODE_OPTIONS: "--max-old-space-size=768"
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./apps/api/src:/app/src:ro
+    depends_on:
+      ai-gemma4: { condition: service_healthy }
+    networks:
+      - khidmeti-network
+    mem_limit:       1g
+    mem_reservation: 256m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ════════════════════════════════════════════════════════════════════════════
+  # AI-GEMMA4 — llama.cpp:server + Gemma4 E2B Q4_K_M
+  # ════════════════════════════════════════════════════════════════════════════
+  ai-gemma4:
+    build:
+      context: ./docker/llama-cpp-audio
+      dockerfile: Dockerfile
+    container_name: khidmeti-ai-gemma4
+    restart: unless-stopped
+    volumes:
+      - ./docker/models/gemma4:/models:rw
+    environment:
+      LLAMA_ARG_MODEL:         "/models/${GEMMA4_MODEL_FILE:-google_gemma-4-e2b-it-Q4_K_M.gguf}"
+      LLAMA_ARG_MMPROJ:        "/models/${GEMMA4_MMPROJ_FILE:-mmproj-google_gemma-4-e2b-it-bf16.gguf}"
+      LLAMA_ARG_HF_TOKEN:      "${HF_TOKEN}"
+      LLAMA_ARG_PORT:          "8011"
+      LLAMA_ARG_HOST:          "0.0.0.0"
+      LLAMA_ARG_CTX_SIZE:      "${GEMMA4_CTX_SIZE:-8192}"
+      LLAMA_ARG_N_PREDICT:     "512"
+      LLAMA_ARG_THREADS:       "4"
+      LLAMA_ARG_PARALLEL:      "1"
+      LLAMA_ARG_CONT_BATCHING: "true"
+      LLAMA_ARG_JINJA:         "true"
+    ports:
+      - "8011:8011"
+    networks:
+      - khidmeti-network
+    mem_limit:       5500m
+    mem_reservation: 4500m
+    healthcheck:
+      test:         ["CMD", "curl", "-sf", "http://localhost:8011/health"]
+      interval:     20s
+      timeout:      10s
+      retries:      6
+      start_period: 120s
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+  # ── nginx ────────────────────────────────────────────────────────────────────
+  nginx:
+    image:          nginx:1.27.4-alpine
+    container_name: khidmeti-nginx
+    restart:        unless-stopped
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api
+    networks:
+      - khidmeti-network
+    mem_limit:       64m
+    mem_reservation: 16m
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"

@@ -1,0 +1,307 @@
+{
+  "brand": "Khidmeti",
+  "nav": {
+    "services": "Services",
+    "how": "How it works",
+    "workers": "For pros",
+    "faq": "FAQ",
+    "download": "Get the app",
+    "admin": "Admin",
+    "menu": "Menu"
+  },
+  "hero": {
+    "badge": "Algeria's #1 home-services platform",
+    "title_1": "Book a",
+    "title_hl": "trusted pro",
+    "title_2": "in minutes",
+    "subtitle": "Plumber, electrician, carpenter, cleaning and more — post your request, get offers from nearby pros, and choose with confidence.",
+    "cta_primary": "Download free",
+    "cta_secondary": "Explore services",
+    "stat_professions": "professions available",
+    "stat_languages": "languages supported",
+    "stat_free": "free for clients",
+    "phone_offers": "Incoming offers"
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "Everything your home needs, in one place",
+    "subtitle": "Dozens of trusted trades, ready whenever you are.",
+    "loading": "Loading services…",
+    "error": "Couldn't load services right now.",
+    "cta": "And many more services"
+  },
+  "how": {
+    "kicker": "How it works",
+    "title": "Three simple steps",
+    "subtitle": "From request to done — a fully seamless experience.",
+    "step1_title": "Post your request",
+    "step1_desc": "Describe what you need by text, voice or photo, set your location and time.",
+    "step2_title": "Get offers",
+    "step2_desc": "Nearby pros send you their price, ETA and you can see their ratings.",
+    "step3_title": "Pick and done",
+    "step3_desc": "Choose the best offer, track your pro, and rate the service afterwards."
+  },
+  "workers": {
+    "kicker": "For pros",
+    "title": "Work for yourself, grow your income",
+    "subtitle": "Join the Khidmeti network and receive jobs near you.",
+    "benefit1": "Nearby jobs in real time",
+    "benefit2": "You set your prices and hours",
+    "benefit3": "Clear payments and reviews that build your reputation",
+    "benefit4": "Instant alerts for every new opportunity",
+    "cta": "Become a pro"
+  },
+  "features": {
+    "kicker": "Why Khidmeti",
+    "title": "Built for your peace of mind",
+    "f1_title": "Verified pros",
+    "f1_desc": "Verified profiles and real reviews from previous clients.",
+    "f2_title": "AI assistant",
+    "f2_desc": "Understands your request and routes it to the right pro in seconds.",
+    "f3_title": "Close to you",
+    "f3_desc": "We connect you to the nearest pros based on your location.",
+    "f4_title": "Live tracking",
+    "f4_desc": "Real-time notifications on every update.",
+    "f5_title": "Transparent pricing",
+    "f5_desc": "Compare offers and choose with no surprises.",
+    "f6_title": "In your language",
+    "f6_desc": "Full interface in Arabic, French and English."
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Got a question? We've got answers",
+    "q1": "Is the app free?",
+    "a1": "Yes, downloading and posting a request are completely free. You only pay the pro for the service.",
+    "q2": "How is pro quality guaranteed?",
+    "a2": "Every pro has a profile with client reviews and completed jobs you can check before choosing.",
+    "q3": "Which areas are covered?",
+    "a3": "We're expanding across Algeria's wilayas. Download the app to check availability in your area.",
+    "q4": "How do I join as a pro?",
+    "a4": "Download the app, pick 'Pro' at sign-up, complete your profile and trade to start receiving jobs."
+  },
+  "download": {
+    "title": "Ready to start?",
+    "subtitle": "Download Khidmeti and get a trusted pro in minutes.",
+    "android": "Get it on Android",
+    "ios": "Download on iPhone"
+  },
+  "footer": {
+    "tagline": "Algeria's trusted home-services platform.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "rights": "All rights reserved."
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Panel",
+      "subtitle": "Sign in with an administrator account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "not_configured": "Firebase is not configured. Add VITE_FIREBASE_* variables to .env.",
+      "invalid": "Invalid email or password.",
+      "forbidden": "This account does not have admin privileges.",
+      "back": "Back to site"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "users": "Users",
+      "workers": "Pros",
+      "verifications": "Verifications",
+      "requests": "Requests",
+      "bids": "Bids",
+      "professions": "Trades",
+      "broadcast": "Broadcast",
+      "logout": "Log out",
+      "site": "View site"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "subtitle": "Platform status at a glance",
+      "total_users": "Total users",
+      "clients": "Clients",
+      "workers": "Pros",
+      "online_workers": "Pros online",
+      "verified": "Verified",
+      "banned": "Banned",
+      "total_requests": "Total requests",
+      "total_bids": "Total bids",
+      "requests_per_day": "Requests, last 30 days",
+      "by_status": "Requests by status",
+      "top_professions": "Top requested trades"
+    },
+    "users": {
+      "title": "Users",
+      "search": "Search by name, email or phone…",
+      "all_roles": "All roles",
+      "name": "Name",
+      "role": "Role",
+      "contact": "Contact",
+      "status": "Status",
+      "joined": "Updated",
+      "actions": "Actions",
+      "active": "Active",
+      "banned": "Banned",
+      "ban": "Ban",
+      "unban": "Unban",
+      "make_admin": "Make admin",
+      "delete": "Delete",
+      "delete_confirm": "Permanently delete this user?",
+      "edit": "Edit"
+    },
+    "workers": {
+      "title": "Pros",
+      "search": "Search a pro…",
+      "profession": "Trade",
+      "rating": "Rating",
+      "jobs": "Jobs",
+      "verify": "Verify",
+      "unverify": "Unverify",
+      "online": "Online",
+      "offline": "Offline",
+      "set_online": "Set online",
+      "set_offline": "Set offline"
+    },
+    "verif": {
+      "title": "Verifications",
+      "tab_pending": "Pending",
+      "tab_rejected": "Rejected",
+      "docs": "Documents",
+      "doc_n": "Doc {{n}}",
+      "approve": "Approve",
+      "reject": "Reject",
+      "reject_title": "Reject the request",
+      "note_label": "Note (visible to the user)",
+      "note_placeholder": "Explain what is missing…",
+      "confirm_reject": "Confirm rejection",
+      "approved_toast": "Account approved",
+      "rejected_toast": "Request rejected"
+    },
+    "requests": {
+      "title": "Service requests",
+      "search": "Search requests…",
+      "all_status": "All statuses",
+      "request": "Request",
+      "client": "Client",
+      "worker": "Pro",
+      "price": "Price",
+      "bids": "Bids",
+      "cancel": "Cancel",
+      "cancel_confirm": "Cancel this request?",
+      "view": "View"
+    },
+    "bids": {
+      "title": "Bids",
+      "all_status": "All statuses",
+      "worker": "Pro",
+      "price": "Proposed price",
+      "duration": "Estimated time",
+      "message": "Message",
+      "minutes": "min"
+    },
+    "professions": {
+      "title": "Trades",
+      "add": "Add trade",
+      "key": "Key",
+      "label": "Name",
+      "category": "Category",
+      "order": "Order",
+      "active": "Active",
+      "inactive": "Inactive",
+      "icon": "Icon",
+      "save": "Save",
+      "create": "Create",
+      "cancel": "Cancel",
+      "delete_confirm": "Delete this trade?",
+      "label_fr": "Name (FR)",
+      "label_ar": "Name (AR)",
+      "label_en": "Name (EN)",
+      "cat_label_fr": "Category (FR)",
+      "cat_label_ar": "Category (AR)",
+      "cat_label_en": "Category (EN)"
+    },
+    "broadcast": {
+      "title": "Broadcast notification",
+      "subtitle": "Send an instant notification to a user segment",
+      "notif_title": "Notification title",
+      "notif_body": "Message body",
+      "audience": "Target audience",
+      "aud_all": "Everyone",
+      "aud_clients": "Clients only",
+      "aud_workers": "Pros only",
+      "aud_wilaya": "Specific wilaya",
+      "wilaya": "Wilaya code",
+      "send": "Send",
+      "sending": "Sending…",
+      "sent": "Sent to {{count}} user(s)"
+    }
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong.",
+    "retry": "Retry",
+    "empty": "No data.",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "prev": "Previous",
+    "next": "Next",
+    "page": "Page {{page}} of {{pages}}",
+    "of": "of",
+    "results": "results",
+    "confirm": "Confirm",
+    "skip_to_content": "Skip to content",
+    "back_to_top": "Back to top"
+  },
+  "legal": {
+    "back": "Back to home",
+    "updated": "Last updated: July 2026",
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "h": "Data we collect",
+          "p": "We collect your phone number, name, location (on request) and the details of your service requests (text, photos, audio) to operate the platform and match you with nearby professionals."
+        },
+        {
+          "h": "How we use your data",
+          "p": "Your data is used solely to provide the service: sharing your request with professionals, sending notifications and improving your experience. We never sell your data to third parties."
+        },
+        {
+          "h": "Storage and protection",
+          "p": "Sensitive data is stored encrypted and access is limited to what the service requires. You can request deletion of your account and data at any time."
+        },
+        {
+          "h": "Contact us",
+          "p": "For any privacy question, write to contact@khidmeti.com."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "h": "The service",
+          "p": "Khidmeti is a marketplace connecting clients with independent professionals. Professionals are responsible for the quality and pricing of their work; agreements are made directly between the parties."
+        },
+        {
+          "h": "Accounts",
+          "p": "You are responsible for the accuracy of your account information and the confidentiality of your credentials. Fraudulent or abusive accounts may be suspended."
+        },
+        {
+          "h": "Payments and reviews",
+          "p": "The app is free for clients. The service is paid directly to the professional. Reviews must reflect a genuine experience."
+        },
+        {
+          "h": "Liability",
+          "p": "We verify professional profiles where possible, without assuming direct liability for work performed outside the platform."
+        }
+      ]
+    }
+  }
+}

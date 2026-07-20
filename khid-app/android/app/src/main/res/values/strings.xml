@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Khidmeti Worker</string>
+    <string name="notification_channel_default">Notifications générales</string>
+    <string name="notification_channel_messages">Messages</string>
+    <string name="notification_channel_services">Services</string>
+    <string name="notification_channel_location">Localisation</string>
+    <string name="location_service_title">Suivi actif</string>
+    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
+    <string name="location_service_content">Votre position est partagée</string>
+</resources>

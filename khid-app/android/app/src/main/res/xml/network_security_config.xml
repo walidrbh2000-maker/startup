@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Production config: HTTPS only. Debug builds override this via the
+     same-named file in the debug source set (src/debug/res/xml/). -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

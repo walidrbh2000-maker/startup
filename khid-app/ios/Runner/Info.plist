@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Khidmeti</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>khidmeti</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+
+	<!-- Permission usage descriptions (iOS crashes on access without these) -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Khidmeti utilise votre position pour vous connecter aux prestataires proches et suivre les interventions.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Khidmeti partage votre position en arrière-plan pour maintenir votre disponibilité auprès des clients pendant une prestation.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Khidmeti partage votre position en arrière-plan pour maintenir votre disponibilité auprès des clients pendant une prestation.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Khidmeti utilise la caméra pour prendre des photos de vos demandes de service et de votre profil.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Khidmeti utilise le microphone pour les messages vocaux et la recherche vocale.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Khidmeti utilise la reconnaissance vocale pour la recherche par la voix.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Khidmeti accède à vos photos pour joindre des images à vos demandes et à votre profil.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Khidmeti enregistre des images dans votre galerie.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Khidmeti utilise Face ID pour verrouiller et sécuriser l'accès à l'application.</string>
+
+	<!-- Background execution: location tracking + remote push -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+
+	<!-- url_launcher: schemes queried before launching -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+		<string>tel</string>
+		<string>mailto</string>
+		<string>https</string>
+	</array>
+</dict>
+</plist>

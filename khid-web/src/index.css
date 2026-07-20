@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Midnight Indigo — CSS variables (raw "R G B" triplets for Tailwind alpha).
+   Light is the default; [data-theme="dark"] flips the theme-aware tokens.
+   ════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* theme-aware — light */
+  --bg: 248 247 255;
+  --bg-deep: 240 238 255;
+  --surface: 255 255 255;
+  --surface-variant: 240 238 255;
+  --border: 224 219 255;
+  --text: 18 4 28;
+  --text-secondary: 107 100 160;
+  --text-tertiary: 168 162 212;
+  --success: 22 163 74;
+  --warning: 217 119 6;
+  --danger: 220 38 38;
+
+  /* brand — fixed across themes */
+  --primary: 79 70 229;
+  --primary-soft: 99 102 241;
+  --worker: 124 58 237;
+  --accent-indigo: 99 102 241;
+  --accent-violet: 139 92 246;
+  --accent-emerald: 16 185 129;
+  --accent-pink: 236 72 153;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: 8 5 16;
+  --bg-deep: 18 8 32;
+  --surface: 20 16 40;
+  --surface-variant: 28 18 53;
+  --border: 34 22 64;
+  --text: 240 234 255;
+  /* matches app_theme.dart darkSecondaryText #9B91C0 (≈6.9:1 on --bg) */
+  --text-secondary: 155 145 192;
+  --text-tertiary: 106 96 144;
+  --success: 52 211 153;
+  --warning: 251 191 36;
+  --danger: 248 113 113;
+
+  color-scheme: dark;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Anchored sections land below the fixed nav */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Motion is an enhancement — honour the user's OS preference (framer-motion
+   is silenced via <MotionConfig reducedMotion="user">; this covers CSS). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Keyboard-only focus ring, consistent everywhere */
+:focus-visible {
+  outline: 2px solid rgb(var(--primary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Arabic gets a display-friendly Kufi/Cairo stack when dir=rtl */
+html[dir='rtl'] body {
+  font-family: 'Noto Kufi Arabic', 'Cairo', Tahoma, system-ui, sans-serif;
+}
+
+/* Nicely styled scrollbar in dark admin */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary) / 0.6);
+}
+
+/* Skip link: visually hidden until focused */
+.skip-link {
+  position: fixed;
+  inset-inline-start: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  background: rgb(var(--primary));
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: top 0.2s ease-out;
+}
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* Infinite profession marquee (pauses on hover / reduced motion) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+html[dir='rtl'] .marquee-track {
+  animation-direction: reverse;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Slow drifting gradient for the download CTA panel */
+@keyframes gradient-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-drift 14s ease-in-out infinite;
+}
+
+@layer components {
+  .glass {
+    background: rgb(var(--surface) / 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .card {
+    @apply rounded-2xl border border-border bg-surface;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  /* gradient text used for hero headlines */
+  .text-gradient {
+    background: linear-gradient(
+      100deg,
+      rgb(var(--primary)) 0%,
+      rgb(var(--accent-violet)) 55%,
+      rgb(var(--accent-pink)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
