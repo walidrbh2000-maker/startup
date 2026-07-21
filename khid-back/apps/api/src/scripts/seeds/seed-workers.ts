@@ -7,7 +7,8 @@
 //
 // PROPRIÉTÉS :
 //   • ~750 workers répartis sur les 58 wilayas (villes majeures densifiées),
-//     dispersés à ±9 km autour du centre de chaque wilaya.
+//     en 2 anneaux : 1/3 près du centre (±9 km), 2/3 sur toute la wilaya
+//     (±39 km) — un client loin du chef-lieu voit toujours des workers.
 //   • Chaque wilaya couvre les 11 métiers (cycle i % 11 — vérifié par assert).
 //   • Déterministe (RNG mulberry32 à graine fixe) : re-run = mêmes données.
 //   • UPSERT (replaceOne) et non create-skip : re-lancer le script RÉPARE les
@@ -92,13 +93,6 @@ const PROFESSIONS = [
   'plumber', 'electrician', 'ac_repair', 'mason', 'painter', 'carpenter',
   'cleaner', 'appliance_repair', 'gardener', 'mover', 'mechanic',
 ];
-
-// Avatar emoji — convention `emoji:X` de profileImageUrl (voir khid-app).
-const PROFESSION_EMOJI: Record<string, string> = {
-  plumber: '🔧', electrician: '⚡', ac_repair: '❄️', mason: '🧱',
-  painter: '🎨', carpenter: '🪚', cleaner: '🧹', appliance_repair: '🛠️',
-  gardener: '🌿', mover: '📦', mechanic: '🚗',
-};
 
 const FIRST_NAMES = [
   'Karim', 'Farid', 'Mohamed', 'Youcef', 'Amine', 'Rachid', 'Bilal', 'Nabil',
@@ -257,10 +251,12 @@ function generateWorkers(): SeedWorker[] {
         jobs:       3 + Math.floor(rand() * 77),               // 3 → 79
         isOnline:   rand() < 0.85,                             // ~15% hors ligne
         b2bAccess:  rand() < 0.2,                              // ~20% tier Expert
-        // Dispersion ±0.08° (≈ ±9 km) autour du centre de la wilaya —
-        // largement dans le rayon client de 50 km.
-        lat:        +(w.lat + (rand() - 0.5) * 0.16).toFixed(6),
-        lng:        +(w.lng + (rand() - 0.5) * 0.16).toFixed(6),
+        // Dispersion en 2 anneaux : 1 worker sur 3 reste près du centre
+        // (±9 km), les autres couvrent toute la wilaya (±0.35° ≈ ±39 km).
+        // Un utilisateur situé loin du chef-lieu a ainsi toujours des
+        // workers dans son rayon de 50 km.
+        lat:        +(w.lat + (rand() - 0.5) * (i % 3 === 0 ? 0.16 : 0.70)).toFixed(6),
+        lng:        +(w.lng + (rand() - 0.5) * (i % 3 === 0 ? 0.16 : 0.70)).toFixed(6),
         wilayaCode: w.code,
         wilayaName: w.name,
       });
@@ -274,13 +270,16 @@ async function main() {
   const shouldClear = process.argv.includes('--clear');
   const workers     = generateWorkers();
 
-  // Self-check : chaque wilaya couvre les 11 métiers.
+  // Self-check : chaque wilaya couvre les 11 métiers ET les 2 anneaux
+  // de dispersion (au moins un worker à > 0.1° ≈ 11 km du centre).
   for (const w of WILAYAS) {
-    const covered = new Set(
-      workers.filter((x) => x.wilayaCode === w.code).map((x) => x.profession),
-    );
+    const ws      = workers.filter((x) => x.wilayaCode === w.code);
+    const covered = new Set(ws.map((x) => x.profession));
     if (covered.size !== PROFESSIONS.length) {
       throw new Error(`Couverture métiers incomplète — wilaya ${w.code} (${covered.size}/${PROFESSIONS.length})`);
+    }
+    if (!ws.some((x) => Math.abs(x.lat - w.lat) > 0.1 || Math.abs(x.lng - w.lng) > 0.1)) {
+      throw new Error(`Dispersion large absente — wilaya ${w.code} (tous les workers < 11 km du centre)`);
     }
   }
 
@@ -332,7 +331,9 @@ async function main() {
           geoHash,
           lastUpdated:     now,
           lastCellUpdate:  now,
-          profileImageUrl: `emoji:${PROFESSION_EMOJI[w.profession]}`,
+          // Photo déterministe par uid (pravatar) — l'app retombe sur l'icône
+          // métier via errorBuilder si le CDN est inaccessible hors ligne.
+          profileImageUrl: `https://i.pravatar.cc/150?u=${w.uid}`,
           fcmToken:        null,
           profession:      w.profession,
           isOnline:        w.isOnline,
