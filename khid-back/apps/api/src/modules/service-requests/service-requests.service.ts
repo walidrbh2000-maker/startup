@@ -34,7 +34,7 @@ import { WorkerBid, WorkerBidDocument }           from '../../schemas/worker-bid
 import { CreateServiceRequestDto }  from '../../dto/create-service-request.dto';
 import { UpdateServiceRequestDto }  from '../../dto/update-service-request.dto';
 import { SubmitRatingDto }          from '../../dto/submit-rating.dto';
-import { ServiceStatus, ServicePriority } from '../../common/enums';
+import { ServiceStatus, ServicePriority, BidStatus } from '../../common/enums';
 import { UsersService }             from '../users/users.service';
 import { ServiceRequestGateway }    from '../gateway/service-request.gateway';
 import { PushSenderService }        from '../notifications/push-sender.service';
